@@ -1,0 +1,114 @@
+BDD Framework using python :--
+
+Gherkin is a plain-text language with a simple structure.
+
+BDD---> Behaviour driven development
+BDD---> BDD is an agile software development technique that encourages collaboration between developers ,QA and non technical
+business participants in a software project
+
+
+What is behave??
+--> Behave is behaviour driven development python style
+--> Behave operates on directories containing.
+--> Feature files written by your business analyst /sponsor/ whoever with your behaviour scenarios in it,and
+--> a steps directory with python step implementations for the scenarios.
+
+BDD Scenarios and Feature Files in gherkin
+
+In bdd we have 3 main components:-
+1.Feature files  ---> extension --> .feature
+2.Scenarios      --->
+3.Steps
+
+Feature files:--Its seem like test suite
+Scenarios --> its similar like test case
+Steps:-- Step to perform test cases.
+
+
+Scenarios : Title/Short description
+    Given [A Precondition]
+    When [some event]
+    Then [Some Outcome]
+
+Example:-1
+Feature :OrangeHRM Login
+Scenario:Logo presence on OrangeHRM home page
+    Given: I launch chrome browser
+    When i open orange hrm homepage
+    Then i verify that the logo present on page
+
+Example:- 2
+Scenario:Login to orangeHRM
+    Given I launch chrome browser
+    When i open orange hrm homepage
+    And Enter username and password
+    And Click on login button
+    Then user must successfully login to the dashboard page
+
+
+
+Python behave with selenium :--
+1) Project creation
+2) First Selenium Test
+
+Package we need :-- selenium package
+                --> behave package
+
+Selenium -->Driver for browser
+
+Step parameters:--
+
+Scenario outline:--By this we can execute multiple times steps .Like we can perform data driven testing using this
+
+Background :- Executing number of steps before each scenario
+same as tear down in robot framework.
+
+
+
+
+
+Gherkin keyword :-
+Given:- The "Given" step describes the initial stage of the system or preconditions
+It outlines what happened in the past or the state of the system before any actions take place
+
+When:-  The "When" step is used to describe the actions performed by the user or the system.
+Multiple "When" statement can be used in a feature.
+To improve readability ,its recommended to use the "And" keyword when multiple "When" steps are used.
+
+
+Then:-The "Then" step outlines the expected outcome after the actions are performed.
+It describes what should happen when the action is executed
+
+
+
+Step to avoid:-
+The "Given" step should not be used to perform actions
+Its meant for describing the initial state or preconditions of the system ,not for action execution.
+
+tags in bdd :-
+command to execute the test case using tags name:-
+@tags_name in feature file in above each scenerio
+behave --tags =tags_name
+if we want to execute multiple tags :-
+behave --tags =tag1,tags2 etc (logical OR)
+behave --tags=@tag1,@tag2
+
+if we want skip particular tags name:-
+behave --tags=~tags_name
+
+
+Allure reports:--
+pip3 install allure-behave
+command to generate allure reports:-
+behave -f allure_behave.formatter:AllureFormatter -o reports/ features
+
+Allure reports is geerated in form of json.
+
+To convert json to html reports then we use one simple command:-
+allure serve reports/
+
+
+
+
+
+
