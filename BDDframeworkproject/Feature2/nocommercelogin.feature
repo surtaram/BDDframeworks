@@ -7,6 +7,8 @@ Feature: Nopcommerce login
     And Clicked on Login
 
 
+
+
   @Sanity
   Scenario: Nop commerce user valid login credentials
     And Enter "ram14@gmail.com" and "xyz1234"
