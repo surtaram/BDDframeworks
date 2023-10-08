@@ -11,6 +11,9 @@ Feature: Full page automate
     And Select checkboxes
     And Select country
     And Select colours
+    And Select date
+    And Print all the value from web table
+
 
 
 

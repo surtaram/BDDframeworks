@@ -66,6 +66,18 @@ def step_impl(context):
     colours.select_by_visible_text("Red")
 
 
+@when('Select date')
+def step_impl(context):
+    pass
+
+@when('Print all the value from web table')
+def step_impl(context):
+    pass
+
+
+
+
+
 
 
 
