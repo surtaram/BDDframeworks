@@ -3,10 +3,15 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
-
+from selenium.webdriver.chrome.options import Options
 @given("I launch chrome browser")
 def step_impl(context):
-    context.driver =webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+    # added headless mode in script
+    chrome_options = Options()
+    chrome_options.add_argument('--headless')
+    chrome_service = ChromeService(ChromeDriverManager().install())
+    # context.driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+    context.driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
 
 
 @when('I open orange hrm home page')

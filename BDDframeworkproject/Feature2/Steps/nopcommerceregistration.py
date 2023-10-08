@@ -4,11 +4,17 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.chrome.options import Options
 import time
 
 @given('Launch the browser')
 def step_impl(context):
-    context.driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+    #added headless mode in script
+    chrome_options = Options()
+    chrome_options.add_argument('--headless')
+    chrome_service = ChromeService(ChromeDriverManager().install())
+    # context.driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+    context.driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
 
 
 @when('Open the application')
